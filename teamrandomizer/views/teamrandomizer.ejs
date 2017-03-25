@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<h1>Team Randomizer</h1>
+
+<% if (params) { %>
+  <h2>Teams</h2>
+  <%  for (let i in teams) { %>
+    <p><%= parseInt(i)+1 %>: <%= teams[i].toString().split(",").join(", ") %>
+    <% } %>
+  </p>
+<% } %>
+
+<form method="post">
+  <%# Enter a list of names%>
+  <div>
+    <label for="Names">Names: </label>
+    <textarea id="names" name="names"></textarea>
+  </div>
+
+  <%# Enter method radio picker%>
+  <div>
+    <label for="Method">Method:</label>
+    <input type="radio" name="method" value="1"><label for="TeamCount"> Team Count</label>
+    <input type="radio" name="method" value="2"><label for="NumberPerTeam"> Number Per Team</label>
+  </div>
+
+  <%# Number for teams%>
+  <div>
+    <label for="Number">Number: </label>
+    <textarea id="number" name="number"></textarea>
+  </div>
+
+  <%# Submit button%>
+  <div>
+    <input id="submit" name="submit" type="submit"/>
+  </div>
+</form>
+
+<%- include('partials/footer') %>
